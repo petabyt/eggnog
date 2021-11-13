@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Eggnog</title>
+	<style>
+	input {
+		display: block;
+	}
+	</style>
+</head>
+<body>
+	<h1>Eggnog</h1>
+	<p>Barebones file uploading service.</p>
+	<form action="upload" method="post" enctype="multipart/form-data">
+		<input type="file" name="file" id="file">
+		Encryption Key: <input type="text" name="key" id="key" placeholder="Random key">
+		<input type="submit" value="Upload" name="submit">
+	</form>
+</body>
+<script>
+var key = document.getElementById("key");
+function generate() {
+	var chars = "iocvb14qwer90ghjklzxtp23asdf5678yunm";
+	var output = "";
+
+	for (var i = 0; i < 10; i++) {
+		output += chars[Math.floor(Math.random() * chars.length)];
+	}
+
+	key.value = output;
+}
+
+generate();
+</script>
+</html>
