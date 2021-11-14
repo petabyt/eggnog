@@ -4,4 +4,3 @@ all:
 init:
 	rm -rf file
 	mkdir file
-	echo "0" > counter
