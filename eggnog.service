@@ -1,0 +1,13 @@
+[Unit]
+Description=eggnog service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+RestartSec=1
+User=daniel
+ExecStart=sh -c "cd ~/eggnog; go run ."
+
+[Install]
+WantedBy=multi-user.target
