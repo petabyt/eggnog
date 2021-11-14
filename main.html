@@ -7,16 +7,58 @@
 	input {
 		display: block;
 	}
+
+	#box {
+		padding: 10px 10px;
+		width: 200px;
+		border: 1px solid black;
+		margin-bottom: 10px;
+	}
+
+	#file {
+		width: 200px;
+		height: 50px;
+	}
+
+	#submit {
+		padding: 10px 10px;
+	}
+
+	html, body {
+		width: 100%;
+		margin: 0px;
+	}
+
+	#main {
+		margin: auto;
+		width: 400px;
+		text-align: center;
+	}
+
+	#main * {
+		margin-right: auto;
+		margin-left: auto;
+	}
 	</style>
 </head>
 <body>
+	<div id="main">
 	<h1>Eggnog</h1>
-	<p>Barebones file uploading service.</p>
+	<p>Barebones file uploading service. No ads, no BS.
+	Any file type is allowed, with 1 megabyte limit.</p>
 	<form action="upload" method="post" enctype="multipart/form-data">
-		<input type="file" name="file" id="file">
-		Encryption Key: <input type="text" name="key" id="key" placeholder="Random key">
-		<input type="submit" value="Upload" name="submit">
+		<div id="box">
+			<input type="file" name="file" id="file">
+		</div>
+		<div id="box">
+			Encryption Key: <input type="text" name="key" id="key" placeholder="Random key">
+		</div>
+		<input id="submit" type="submit" value="Upload" name="submit">
 	</form>
+	<p>Source code: <a href="https://github.com/petabyt/eggnog">https://github.com/petabyt/eggnog</a>
+	<br>This service is graciously provided by <a href="https://petabyte.heb12.com/server.html">Daniel C</a>
+	</p>
+	</div>
 </body>
 <script>
 var key = document.getElementById("key");
@@ -24,7 +66,7 @@ function generate() {
 	var chars = "iocvb14qwer90ghjklzxtp23asdf5678yunm";
 	var output = "";
 
-	for (var i = 0; i < 10; i++) {
+	for (var i = 0; i < 50; i++) {
 		output += chars[Math.floor(Math.random() * chars.length)];
 	}
 
