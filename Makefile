@@ -6,8 +6,9 @@ init:
 	mkdir file
 
 systemd:
-	sudo sh -c 'echo "[Unit]\n\
-	Description=eggnog hosting service\n\
+	echo \
+	"[Unit]\n\
+	Description=Eggnog image hosting\n\
 	After=network.target\n\
 	StartLimitIntervalSec=0\n\
 	\n\
@@ -16,7 +17,9 @@ systemd:
 	Restart=always\n\
 	RestartSec=1\n\
 	User=$(USER)\n\
-	ExecStart=sh -c \"cd ~/eggnog; go run .\"\n\
+	ExecStart=sh -c 'cd ~/eggnog; go run .'\n\
 	\n\
 	[Install]\n\
-	WantedBy=multi-user.target\n" > /etc/systemd/system/eggnog.service'
+	WantedBy=multi-user.target\n" > eggnog.service
+
+.PHONY: all init systemd
